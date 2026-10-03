@@ -24,9 +24,9 @@
   --gradient-subtle: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
   --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.6));
 
-  --border-color: rgba(59, 130, 246, 0.15);
-  --border-hover: rgba(59, 130, 246, 0.3);
-  --border-accent: rgba(59, 130, 246, 0.5);
+  --border-color: rgba(30, 41, 59, 0.2);
+  --border-hover: rgba(30, 41, 59, 0.4);
+  --border-accent: rgba(37, 99, 235, 0.6);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
