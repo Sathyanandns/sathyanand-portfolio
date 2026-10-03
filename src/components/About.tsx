@@ -27,7 +27,7 @@ export default function About() {
         <div className="about-grid">
           <div className={`about-image-section animate-in ${isInView ? 'visible' : ''}`} style={{ transitionDelay: '100ms' }}>
             <img
-              src="/images/sathyanand-about.jpg"
+              src="./images/sathyanand-about.jpg"
               alt="Sathyanand N S"
               className="about-image"
               loading="lazy"

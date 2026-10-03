@@ -49,7 +49,7 @@ export default function Hero() {
               View My Projects <ArrowRight size={18} />
             </a>
             <a
-              href="/Sathyanand_NS_Resume.pdf"
+              href="./Sathyanand_NS_Resume.pdf"
               download
               className="btn btn-secondary"
             >
@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="hero-image-glow" />
             <img
               className="hero-image"
-              src="/images/sathyanand-hero.jpg"
+              src="./images/sathyanand-hero.jpg"
               alt="Sathyanand N S"
               loading="eager"
               width={380}
