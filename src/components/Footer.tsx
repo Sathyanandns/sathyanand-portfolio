@@ -19,7 +19,7 @@ export default function Footer() {
           <a href="mailto:sathyanandns0342@gmail.com" aria-label="Email">
             <Mail size={16} /> Email
           </a>
-          <a href="/Sathyanand_NS_Resume.pdf" download aria-label="Download Resume">
+          <a href="./Sathyanand_NS_Resume.pdf" download aria-label="Download Resume">
             <FileText size={16} /> Resume
           </a>
         </div>

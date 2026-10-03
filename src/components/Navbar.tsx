@@ -56,7 +56,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="/Sathyanand_NS_Resume.pdf"
+              href="./Sathyanand_NS_Resume.pdf"
               download
               className="navbar-resume-btn"
             >
@@ -84,7 +84,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="/Sathyanand_NS_Resume.pdf"
+          href="./Sathyanand_NS_Resume.pdf"
           download
           className="btn btn-primary"
           onClick={handleNavClick}

@@ -18,11 +18,11 @@ export default function Resume() {
         </div>
 
         <div className={`resume-actions animate-in ${isInView ? 'visible' : ''}`} style={{ transitionDelay: '100ms' }}>
-          <a href="/Sathyanand_NS_Resume.pdf" download className="btn btn-primary">
+          <a href="./Sathyanand_NS_Resume.pdf" download className="btn btn-primary">
             <Download size={18} /> Download Resume
           </a>
           <a
-            href="/Sathyanand_NS_Resume.pdf"
+            href="./Sathyanand_NS_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
