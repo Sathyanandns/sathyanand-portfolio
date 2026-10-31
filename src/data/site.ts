@@ -9,11 +9,11 @@ export const siteConfig = {
   location: 'Coimbatore, Tamil Nadu, India',
 
   // Current status — update this single value to change the hero + contact text
-  currentStatus: 'Starting as AI Cloud Engineer on 02 Nov 2026',
+  currentStatus: 'Starting as AI Cloud Engineer on 02 Nov 2025',
   currentRoleTitle: 'AI Cloud Engineer',
-  startDate: '02 Nov 2026',
+  startDate: '02 Nov 2025',
   openToOpportunitiesText:
-    'Starting as AI Cloud Engineer on 02 Nov 2026. Open to technical collaborations, open source contributions, and knowledge sharing.',
+    'Starting as AI Cloud Engineer on 02 Nov 2025. Open to technical collaborations, open source contributions, and knowledge sharing.',
 
   heroDescription:
     'Building practical machine learning solutions, cloud-based systems, data pipelines, and automation with Python and AWS.',
