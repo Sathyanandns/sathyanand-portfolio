@@ -267,7 +267,7 @@ async function generateOgImage() {
     <rect x="90" y="100" width="460" height="38" rx="19" fill="url(#badgeGrad)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1" />
     <circle cx="112" cy="119" r="6" fill="#22c55e" />
     <text x="130" y="125" font-family="JetBrains Mono, monospace" font-size="14" fill="#93c5fd" font-weight="600">
-      Incoming AI Cloud Engineer • Starting Nov 2025
+      AI Cloud Engineer • Started Nov 2025
     </text>
 
     <!-- Name & Title -->
