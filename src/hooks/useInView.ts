@@ -2,15 +2,21 @@ import { useEffect, useRef, useState } from 'react';
 
 export function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
+    if (isInView) return;
+
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
     if (prefersReducedMotion) {
-      setIsInView(true);
       return;
     }
 
@@ -32,7 +38,7 @@ export function useInView(threshold = 0.15) {
     return () => {
       if (currentRef) observer.unobserve(currentRef);
     };
-  }, [threshold]);
+  }, [threshold, isInView]);
 
   return { ref, isInView };
 }
