@@ -1,0 +1,79 @@
+
+  <svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0a101f" />
+        <stop offset="100%" stop-color="#162238" />
+      </linearGradient>
+      <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f97316" />
+        <stop offset="100%" stop-color="#ea580c" />
+      </linearGradient>
+      <linearGradient id="awsBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#38bdf8" />
+        <stop offset="100%" stop-color="#0284c7" />
+      </linearGradient>
+      <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+
+    <rect width="800" height="450" rx="16" fill="url(#bg2)"/>
+    <rect x="1" y="1" width="798" height="448" rx="15" fill="none" stroke="#253550" stroke-width="2"/>
+
+    <!-- Header -->
+    <text x="40" y="55" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#f8fafc">ML Model Deployment on AWS</text>
+    <text x="40" y="80" font-family="Inter, sans-serif" font-size="13" fill="#94a3b8">Scalable Cloud Architecture: EC2 Compute, S3 Artifact Storage, IAM Security</text>
+
+    <!-- Cloud Boundary Box -->
+    <rect x="40" y="110" width="720" height="300" rx="14" fill="#0f192b" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="60" y="135" font-family="JetBrains Mono, monospace" font-size="12" fill="#38bdf8">AWS Cloud Infrastructure (VPC)</text>
+
+    <!-- Client / Traffic -->
+    <g transform="translate(60, 170)" filter="url(#shadow2)">
+      <rect width="130" height="100" rx="10" fill="#1e2c44" stroke="#64748b"/>
+      <text x="65" y="38" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="#f8fafc" text-anchor="middle">Client App</text>
+      <text x="65" y="65" font-family="Inter, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">HTTPS / REST</text>
+      <text x="65" y="82" font-family="Inter, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">JSON Payload</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 200 220 L 260 220" stroke="#f97316" stroke-width="2" marker-end="url(#arr)"/>
+    <polygon points="260,220 252,215 252,225" fill="#f97316"/>
+
+    <!-- EC2 Compute -->
+    <g transform="translate(270, 160)" filter="url(#shadow2)">
+      <rect width="230" height="130" rx="12" fill="#1e2c44" stroke="#f97316" stroke-width="1.8"/>
+      <rect x="14" y="14" width="30" height="30" rx="6" fill="url(#orange)"/>
+      <text x="29" y="35" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#fff" text-anchor="middle">EC2</text>
+      <text x="56" y="34" font-family="Inter, sans-serif" font-weight="600" font-size="15" fill="#f8fafc">AWS EC2 Instance</text>
+      <text x="18" y="72" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Flask REST Prediction Service</text>
+      <text x="18" y="92" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Gunicorn + Nginx Proxy</text>
+      <text x="18" y="112" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Systemd Daemon Auto-restart</text>
+    </g>
+
+    <!-- Bi-directional connection to S3 -->
+    <path d="M 510 220 L 560 220" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="560,220 552,215 552,225" fill="#38bdf8"/>
+
+    <!-- S3 Storage -->
+    <g transform="translate(570, 160)" filter="url(#shadow2)">
+      <rect width="170" height="130" rx="12" fill="#1e2c44" stroke="#38bdf8" stroke-width="1.5"/>
+      <rect x="14" y="14" width="30" height="30" rx="6" fill="url(#awsBlue)"/>
+      <text x="29" y="35" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#fff" text-anchor="middle">S3</text>
+      <text x="54" y="34" font-family="Inter, sans-serif" font-weight="600" font-size="15" fill="#f8fafc">Amazon S3</text>
+      <text x="16" y="72" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Model Artifacts</text>
+      <text x="16" y="92" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Versioned Joblib</text>
+      <text x="16" y="112" font-family="Inter, sans-serif" font-size="11" fill="#cbd5e1">• Encrypted at Rest</text>
+    </g>
+
+    <!-- IAM Security Layer Bottom -->
+    <g transform="translate(60, 315)">
+      <rect width="680" height="75" rx="8" fill="#142137" stroke="#475569" stroke-width="1"/>
+      <text x="20" y="28" font-family="JetBrains Mono, monospace" font-size="12" fill="#fbbf24">🔒 AWS IAM &amp; Security Layer</text>
+      <text x="20" y="52" font-family="Inter, sans-serif" font-size="11" fill="#94a3b8">
+        Least-privilege EC2 Role with s3:GetObject only • Scoped Security Groups (Port 80/443 strictly) • CloudWatch Logs
+      </text>
+    </g>
+  </svg>
+  
