@@ -20,12 +20,13 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function Skills() {
-  const { ref, isInView } = useInView();
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: gridRef, isInView: gridInView } = useInView(0.1);
 
   return (
     <section id="skills" className="section">
       <div className="container">
-        <div className={`section-header animate-in ${isInView ? 'visible' : ''}`} ref={ref}>
+        <div className={`section-header animate-in ${headerInView ? 'visible' : ''}`} ref={headerRef}>
           <span className="section-label">
             <Layers size={14} /> Technical Skills
           </span>
@@ -35,11 +36,11 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="skills-grid stagger">
+        <div className="skills-grid stagger" ref={gridRef}>
           {skillCategories.map((category, i) => (
             <div
               key={category.title}
-              className={`skill-category-card animate-in ${isInView ? 'visible' : ''}`}
+              className={`skill-category-card animate-in ${gridInView ? 'visible' : ''}`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="skill-category-header">

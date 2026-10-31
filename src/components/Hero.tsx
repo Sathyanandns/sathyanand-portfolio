@@ -6,15 +6,17 @@ import {
   Cloud,
   Brain,
   Code,
+  Sparkles,
 } from 'lucide-react';
+import { siteConfig, assetUrl } from '../data/site';
 
 export default function Hero() {
   const { ref, isInView } = useInView(0.1);
 
   return (
     <section id="home" className="hero" ref={ref}>
-      {/* Background */}
-      <div className="hero-bg">
+      {/* Background decoration */}
+      <div className="hero-bg" aria-hidden="true">
         <div className="hero-grid" />
         <div className="hero-gradient-orb blue" />
         <div className="hero-gradient-orb purple" />
@@ -24,24 +26,30 @@ export default function Hero() {
       <div className="hero-content">
         {/* Text */}
         <div className={`hero-text animate-in ${isInView ? 'visible' : ''}`}>
+          {/* Currently / Status Pill */}
+          <div className="hero-currently-banner">
+            <span className="currently-pulse" />
+            <Sparkles size={14} className="currently-icon" />
+            <span>{siteConfig.currentStatus}</span>
+          </div>
+
           <div className="hero-status">
             <span className="status-dot" />
             Python &bull; Machine Learning &bull; AWS &bull; Cloud Computing
           </div>
 
           <h1 className="hero-name">
-            <span>Sathyanand</span>
-            <span className="first-name">N S</span>
+            <span>{siteConfig.firstName}</span>
+            <span className="first-name">{siteConfig.lastName}</span>
           </h1>
 
           <p className="hero-title">
             <span className="title-divider" />
-            Machine Learning &amp; Cloud Computing Engineer
+            {siteConfig.title}
           </p>
 
           <p className="hero-description">
-            Building practical machine learning solutions, cloud-based systems,
-            data pipelines, and automation with Python and AWS.
+            {siteConfig.heroDescription}
           </p>
 
           <div className="hero-actions">
@@ -49,7 +57,7 @@ export default function Hero() {
               View My Projects <ArrowRight size={18} />
             </a>
             <a
-              href="./Sathyanand_NS_Resume.pdf"
+              href={assetUrl(siteConfig.resumeFile)}
               download
               className="btn btn-secondary"
             >
@@ -66,9 +74,9 @@ export default function Hero() {
             <span className="divider">•</span>
             <span>Machine Learning</span>
             <span className="divider">•</span>
-            <span>AWS</span>
+            <span>AWS Cloud</span>
             <span className="divider">•</span>
-            <span>Cloud Computing</span>
+            <span>Data Pipelines</span>
           </div>
         </div>
 
@@ -79,15 +87,20 @@ export default function Hero() {
         >
           <div className="hero-image-container">
             <div className="hero-image-glow" />
-            <img
-              className="hero-image"
-              src="./images/sathyanand-hero.jpg"
-              alt="Sathyanand N S"
-              loading="eager"
-              width={380}
-              height={420}
-            />
-            {/* Floating cards */}
+            <picture>
+              <source srcSet={assetUrl('images/sathyanand-hero.webp')} type="image/webp" />
+              <img
+                className="hero-image"
+                src={assetUrl('images/sathyanand-hero.jpg')}
+                alt={`${siteConfig.name} - ${siteConfig.title}`}
+                loading="eager"
+                width={380}
+                height={420}
+                fetchPriority="high"
+              />
+            </picture>
+
+            {/* Floating badges */}
             <div className="hero-floating-card card-1">
               <Brain size={14} className="card-icon" />
               <span>ML Engineer</span>
@@ -98,7 +111,7 @@ export default function Hero() {
             </div>
             <div className="hero-floating-card card-3">
               <Code size={14} className="card-icon" />
-              <span>Python</span>
+              <span>Python &amp; Data</span>
             </div>
           </div>
         </div>

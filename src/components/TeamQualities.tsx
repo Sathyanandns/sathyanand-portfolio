@@ -28,12 +28,13 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function TeamQualities() {
-  const { ref, isInView } = useInView();
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: gridRef, isInView: gridInView } = useInView(0.1);
 
   return (
     <section className="section">
       <div className="container">
-        <div className={`section-header animate-in ${isInView ? 'visible' : ''}`} ref={ref}>
+        <div className={`section-header animate-in ${headerInView ? 'visible' : ''}`} ref={headerRef}>
           <span className="section-label">
             <Handshake size={14} /> What I Bring
           </span>
@@ -43,11 +44,11 @@ export default function TeamQualities() {
           </p>
         </div>
 
-        <div className="qualities-grid stagger">
+        <div className="qualities-grid stagger" ref={gridRef}>
           {teamQualities.map((quality, i) => (
             <div
               key={quality.title}
-              className={`quality-card animate-in ${isInView ? 'visible' : ''}`}
+              className={`quality-card animate-in ${gridInView ? 'visible' : ''}`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <div className="quality-icon">

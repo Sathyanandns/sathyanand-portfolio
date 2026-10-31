@@ -1,20 +1,22 @@
 import { useInView } from '../hooks/useInView';
 import { User } from 'lucide-react';
+import { siteConfig, assetUrl } from '../data/site';
 
 const infoCards = [
   { label: 'Focus', value: 'Machine Learning & Cloud Computing' },
   { label: 'Primary Language', value: 'Python' },
-  { label: 'Cloud', value: 'AWS' },
-  { label: 'Location', value: 'Coimbatore, Tamil Nadu' },
+  { label: 'Cloud Architecture', value: 'AWS (EC2, S3, IAM)' },
+  { label: 'Location', value: siteConfig.location },
 ];
 
 export default function About() {
-  const { ref, isInView } = useInView();
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: contentRef, isInView: contentInView } = useInView(0.1);
 
   return (
     <section id="about" className="section">
       <div className="container">
-        <div className={`section-header animate-in ${isInView ? 'visible' : ''}`} ref={ref}>
+        <div className={`section-header animate-in ${headerInView ? 'visible' : ''}`} ref={headerRef}>
           <span className="section-label">
             <User size={14} /> About Me
           </span>
@@ -24,37 +26,53 @@ export default function About() {
           </p>
         </div>
 
-        <div className="about-grid">
-          <div className={`about-image-section animate-in ${isInView ? 'visible' : ''}`} style={{ transitionDelay: '100ms' }}>
-            <img
-              src="./images/sathyanand-about.jpg"
-              alt="Sathyanand N S"
-              className="about-image"
-              loading="lazy"
-            />
-            <div className="about-image-accent" />
+        <div className="about-grid" ref={contentRef}>
+          <div
+            className={`about-image-section animate-in ${contentInView ? 'visible' : ''}`}
+            style={{ transitionDelay: '100ms' }}
+          >
+            <picture>
+              <source srcSet={assetUrl('images/sathyanand-about.webp')} type="image/webp" />
+              <img
+                src={assetUrl('images/sathyanand-about.jpg')}
+                alt={`${siteConfig.name} profile portrait`}
+                className="about-image"
+                loading="lazy"
+                width={420}
+                height={560}
+              />
+            </picture>
+            <div className="about-image-accent" aria-hidden="true" />
           </div>
 
-          <div className={`about-text-section animate-in ${isInView ? 'visible' : ''}`} style={{ transitionDelay: '200ms' }}>
+          <div
+            className={`about-text-section animate-in ${contentInView ? 'visible' : ''}`}
+            style={{ transitionDelay: '200ms' }}
+          >
             <h3>Building at the Intersection of Data &amp; Infrastructure</h3>
-            
+
             <p>
-              I recently completed my MCA with a strong focus on <strong>Machine Learning</strong> and <strong>AWS Cloud Computing</strong>, and I genuinely enjoy working at the intersection of data and infrastructure.
+              I recently completed my MCA with a strong focus on <strong>Machine Learning</strong> and{' '}
+              <strong>AWS Cloud Computing</strong>, and I genuinely enjoy working at the intersection of
+              data and cloud infrastructure.
             </p>
-            
+
             <p>
-              Over the past couple of years, I've built and deployed ML models, worked with cloud-based data pipelines, and learned how to manage AWS resources securely.
+              Over the past couple of years, I've built and deployed ML models, engineered cloud-based ETL pipelines,
+              and managed AWS infrastructure with strict security and IAM least-privilege standards.
             </p>
-            
+
             <p>
-              I take ownership of problems rather than simply writing code that runs. I care about <strong>scalability</strong>, <strong>maintainability</strong>, <strong>security</strong>, and whether a solution actually solves the right problem.
+              I take ownership of engineering problems from development to cloud hosting. I prioritize{' '}
+              <strong>scalability</strong>, <strong>maintainability</strong>, <strong>security</strong>, and
+              delivering solutions that measurably solve real business problems.
             </p>
 
             <div className="about-info-cards stagger">
               {infoCards.map((card) => (
                 <div
                   key={card.label}
-                  className={`about-info-card animate-in ${isInView ? 'visible' : ''}`}
+                  className={`about-info-card animate-in ${contentInView ? 'visible' : ''}`}
                 >
                   <div className="card-label">{card.label}</div>
                   <div className="card-value">{card.value}</div>

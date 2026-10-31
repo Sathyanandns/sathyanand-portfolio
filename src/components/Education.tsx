@@ -3,23 +3,24 @@ import { educationData } from '../data/skills';
 import { GraduationCap, MapPin } from 'lucide-react';
 
 export default function Education() {
-  const { ref, isInView } = useInView();
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: timelineRef, isInView: timelineInView } = useInView(0.1);
 
   return (
     <section id="education" className="section">
       <div className="container">
-        <div className={`section-header animate-in ${isInView ? 'visible' : ''}`} ref={ref}>
+        <div className={`section-header animate-in ${headerInView ? 'visible' : ''}`} ref={headerRef}>
           <span className="section-label">
             <GraduationCap size={14} /> Education
           </span>
           <h2 className="section-title">Academic Background</h2>
         </div>
 
-        <div className="education-timeline">
+        <div className="education-timeline" ref={timelineRef}>
           {educationData.map((edu, i) => (
             <div
               key={edu.degree}
-              className={`education-item animate-in ${isInView ? 'visible' : ''}`}
+              className={`education-item animate-in ${timelineInView ? 'visible' : ''}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
               <div className="education-dot" />
