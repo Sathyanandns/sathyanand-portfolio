@@ -1,4 +1,3 @@
-import { useInView } from '../hooks/useInView';
 import {
   ArrowRight,
   Download,
@@ -11,10 +10,8 @@ import {
 import { siteConfig, assetUrl } from '../data/site';
 
 export default function Hero() {
-  const { ref, isInView } = useInView(0.1);
-
   return (
-    <section id="home" className="hero" ref={ref}>
+    <section id="home" className="hero">
       {/* Background decoration */}
       <div className="hero-bg" aria-hidden="true">
         <div className="hero-grid" />
@@ -25,7 +22,7 @@ export default function Hero() {
 
       <div className="hero-content">
         {/* Text */}
-        <div className={`hero-text animate-in ${isInView ? 'visible' : ''}`}>
+        <div className="hero-text hero-fade-in">
           {/* Currently / Status Pill */}
           <div className="hero-currently-banner">
             <span className="currently-pulse" />
@@ -82,8 +79,8 @@ export default function Hero() {
 
         {/* Image */}
         <div
-          className={`hero-image-wrapper animate-in ${isInView ? 'visible' : ''}`}
-          style={{ transitionDelay: '200ms' }}
+          className="hero-image-wrapper hero-fade-in"
+          style={{ animationDelay: '150ms' }}
         >
           <div className="hero-image-container">
             <div className="hero-image-glow" />
