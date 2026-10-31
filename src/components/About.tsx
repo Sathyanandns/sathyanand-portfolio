@@ -35,7 +35,7 @@ export default function About() {
               <source srcSet={assetUrl('images/sathyanand-about.webp')} type="image/webp" />
               <img
                 src={assetUrl('images/sathyanand-about.jpg')}
-                alt={`${siteConfig.name} profile portrait`}
+                alt={`${siteConfig.name} working on cloud and machine learning systems`}
                 className="about-image"
                 loading="lazy"
                 width={420}
@@ -43,6 +43,25 @@ export default function About() {
               />
             </picture>
             <div className="about-image-accent" aria-hidden="true" />
+
+            {/* Profile Avatar Showcase Badge */}
+            <div className="about-profile-badge">
+              <picture>
+                <source srcSet={assetUrl('images/sathyanand-profile.webp')} type="image/webp" />
+                <img
+                  src={assetUrl('images/sathyanand-profile.jpg')}
+                  alt={`${siteConfig.name} profile portrait`}
+                  className="about-profile-avatar"
+                  loading="lazy"
+                  width={48}
+                  height={48}
+                />
+              </picture>
+              <div className="about-profile-info">
+                <span className="profile-badge-name">{siteConfig.name}</span>
+                <span className="profile-badge-role">ML &amp; Cloud Engineer</span>
+              </div>
+            </div>
           </div>
 
           <div

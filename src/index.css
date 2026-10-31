@@ -1009,6 +1009,49 @@ ul, ol {
   z-index: -1;
 }
 
+.about-profile-badge {
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  z-index: 3;
+}
+
+.about-profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-blue);
+}
+
+.about-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-badge-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.profile-badge-role {
+  font-size: 0.72rem;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
 .about-text-section h3 {
   font-size: 1.5rem;
   font-weight: 700;
