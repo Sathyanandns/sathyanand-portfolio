@@ -1,6 +1,8 @@
-import { X, ArrowRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { X, ArrowRight, ExternalLink } from 'lucide-react';
 import type { Project } from '../data/projects';
-import { useEffect } from 'react';
+import { GithubIcon } from './Icons';
+import { assetUrl } from '../data/site';
 
 interface Props {
   project: Project;
@@ -8,15 +10,53 @@ interface Props {
 }
 
 export default function ProjectModal({ project, onClose }: Props) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    // Focus close button initially
+    const closeBtn = modalRef.current?.querySelector<HTMLButtonElement>('.modal-close');
+    closeBtn?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+
+        const first = focusableElements[0];
+        const last = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
+
     document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKey);
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKey);
+      window.removeEventListener('keydown', handleKeyDown);
+      // Return focus to previously active element
+      previouslyFocused?.focus();
     };
   }, [onClose]);
 
@@ -28,15 +68,63 @@ export default function ProjectModal({ project, onClose }: Props) {
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="modal-content">
+      <div className="modal-content" ref={modalRef}>
         <div className="modal-header">
-          <h2 id="modal-title" className="modal-title">{project.title}</h2>
+          <div>
+            <span className="project-category-tag">{project.category}</span>
+            <h2 id="modal-title" className="modal-title">{project.title}</h2>
+          </div>
           <button className="modal-close" onClick={onClose} aria-label="Close modal">
             <X size={20} />
           </button>
         </div>
 
         <div className="modal-body">
+          {/* Action Links (GitHub / Demo) */}
+          {(project.githubUrl || project.demoUrl) && (
+            <div className="modal-actions-bar">
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary modal-btn"
+                >
+                  <GithubIcon size={16} /> View Code on GitHub
+                </a>
+              )}
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary modal-btn"
+                >
+                  <ExternalLink size={16} /> Live Demo / Docs
+                </a>
+              )}
+            </div>
+          )}
+
+          {/* Architecture / Screenshot Image */}
+          {project.architectureImage && (
+            <div className="modal-section modal-image-section">
+              <h3 className="modal-section-title">
+                <span>📐</span> Architecture &amp; System Flow
+              </h3>
+              <div className="modal-image-wrapper">
+                <img
+                  src={assetUrl(project.architectureImage)}
+                  alt={project.architectureImageAlt || `${project.title} Architecture`}
+                  loading="lazy"
+                  className="modal-arch-img"
+                  width={800}
+                  height={450}
+                />
+              </div>
+            </div>
+          )}
+
           {/* Problem */}
           <div className="modal-section">
             <h3 className="modal-section-title">
@@ -53,7 +141,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             <p>{project.solution}</p>
           </div>
 
-          {/* Architecture / Pipeline */}
+          {/* Architecture / Pipeline Steps */}
           {project.pipeline && (
             <div className="modal-section">
               <h3 className="modal-section-title">
@@ -75,7 +163,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           {project.architecture && (
             <div className="modal-section">
               <h3 className="modal-section-title">
-                <span>🏗️</span> Architecture
+                <span>🏗️</span> Architecture Components
               </h3>
               <div className="modal-architecture">
                 {project.architecture.map((line) => (
@@ -85,15 +173,34 @@ export default function ProjectModal({ project, onClose }: Props) {
             </div>
           )}
 
-          {/* Metric */}
+          {/* Metric with Context */}
           {project.metric && (
             <div className="modal-section">
-              <div className="project-metric">
+              <h3 className="modal-section-title">
+                <span>📊</span> Key Metric &amp; Performance Context
+              </h3>
+              <div className="project-metric modal-metric-expanded">
                 <div>
                   <div className="project-metric-value">{project.metric.value}</div>
                   <div className="project-metric-label">{project.metric.label}</div>
                 </div>
                 <div className="project-metric-note">{project.metric.note}</div>
+
+                {project.metric.dataset && (
+                  <div className="metric-detail-row">
+                    <strong>Dataset:</strong> {project.metric.dataset}
+                  </div>
+                )}
+                {project.metric.split && (
+                  <div className="metric-detail-row">
+                    <strong>Validation Split:</strong> {project.metric.split}
+                  </div>
+                )}
+                {project.metric.precisionRecall && (
+                  <div className="metric-detail-row">
+                    <strong>Precision / Recall:</strong> {project.metric.precisionRecall}
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -125,7 +232,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           {/* Result */}
           <div className="modal-section">
             <h3 className="modal-section-title">
-              <span>🎯</span> Result
+              <span>🎯</span> Result &amp; Impact
             </h3>
             <p>{project.result}</p>
           </div>
