@@ -50,7 +50,7 @@ export default function Resume() {
           style={{ transitionDelay: '200ms' }}
         >
           <div className="resume-highlight-card">
-            <h4>Education</h4>
+            <h3>Education</h3>
             <ul>
               <li>MCA — KGISL Institute of Information Management (2023–2025)</li>
               <li>B.Sc Computer Science — KG Arts and Science College (2020–2023)</li>
@@ -58,7 +58,7 @@ export default function Resume() {
           </div>
 
           <div className="resume-highlight-card">
-            <h4>Core Skills</h4>
+            <h3>Core Skills</h3>
             <ul>
               <li>Python &amp; Machine Learning (Scikit-Learn, XGBoost)</li>
               <li>AWS Cloud Computing (EC2, S3, IAM, SageMaker)</li>
@@ -68,7 +68,7 @@ export default function Resume() {
           </div>
 
           <div className="resume-highlight-card">
-            <h4>Project Highlights</h4>
+            <h3>Project Highlights</h3>
             <ul>
               <li>Phishing Detection ML System (99.57% test accuracy)</li>
               <li>ML Model Cloud Deployment on AWS EC2 &amp; S3</li>

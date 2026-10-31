@@ -133,7 +133,7 @@ export default function Navbar() {
         />
 
         <div className="navbar-inner">
-          <a href="#home" className="navbar-logo" aria-label="Home">
+          <a href="#home" className="navbar-logo" aria-label="Sathyanand - Home">
             <span className="logo-text">{siteConfig.firstName}</span>
             <span className="logo-dot" />
           </a>

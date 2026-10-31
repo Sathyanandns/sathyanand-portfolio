@@ -80,8 +80,7 @@ export const projects: Project[] = [
       split: '80% Training / 20% Testing with 5-Fold Stratified Cross-Validation',
       precisionRecall: 'Precision: 99.4% | Recall: 99.7% | F1-Score: 99.55%',
     },
-    githubUrl: 'https://github.com/Sathyanandns/phishing-website-detection',
-    demoUrl: 'https://github.com/Sathyanandns/phishing-website-detection#live-demo-and-screenshots',
+    // githubUrl and demoUrl pending user-provided repository links
     highlight: true,
   },
   {
@@ -122,8 +121,7 @@ export const projects: Project[] = [
       value: '< 45ms',
       note: 'P95 response latency on AWS EC2 with Gunicorn / Flask backend',
     },
-    githubUrl: 'https://github.com/Sathyanandns/ml-aws-deployment',
-    demoUrl: 'https://github.com/Sathyanandns/ml-aws-deployment#cloud-architecture',
+    // githubUrl and demoUrl pending user-provided repository links
     highlight: true,
   },
   {
@@ -162,7 +160,7 @@ export const projects: Project[] = [
       value: '85%',
       note: 'Reduction in manual ETL and ingestion turnaround time',
     },
-    githubUrl: 'https://github.com/Sathyanandns/cloud-data-pipeline',
+    // githubUrl pending user-provided repository link
     highlight: false,
   },
   {
@@ -190,8 +188,7 @@ export const projects: Project[] = [
       'CORS configuration for web assets',
       'AWS well-architected security posture',
     ],
-    githubUrl: 'https://github.com/Sathyanandns/aws-s3-static-hosting',
-    demoUrl: 'https://sathyanandns.github.io/sathyanand-portfolio/',
+    // githubUrl pending user-provided repository link
     highlight: false,
   },
   {
@@ -225,8 +222,7 @@ export const projects: Project[] = [
       value: '100%',
       note: 'Automated CPI, SPI, CV, and SV calculation from weekly schedule datasets',
     },
-    githubUrl: 'https://github.com/Sathyanandns/evm-project-dashboard',
-    demoUrl: 'https://github.com/Sathyanandns/evm-project-dashboard#features',
+    // githubUrl and demoUrl pending user-provided repository links
     highlight: true,
   },
   {
@@ -268,8 +264,7 @@ export const projects: Project[] = [
       value: '100% Local',
       note: 'Zero external cloud API transmission; executed strictly on-premise with Ollama',
     },
-    githubUrl: 'https://github.com/Sathyanandns/odoo-local-llm-assistant',
-    demoUrl: 'https://github.com/Sathyanandns/odoo-local-llm-assistant#local-demo-guide',
+    // githubUrl and demoUrl pending user-provided repository links
     highlight: true,
   },
   {
@@ -300,8 +295,7 @@ export const projects: Project[] = [
       value: '< 15ms',
       note: 'Fast UI feedback and responsive agent state transitions',
     },
-    githubUrl: 'https://github.com/Sathyanandns/nexus-ai',
-    demoUrl: 'https://sathyanandns.github.io/nexus-ai/',
+    // githubUrl and demoUrl pending user-provided repository links
     highlight: false,
   },
   {
@@ -332,7 +326,7 @@ export const projects: Project[] = [
       value: '99.9%',
       note: 'Defensive retry logic with fallback handling across network interruptions',
     },
-    githubUrl: 'https://github.com/Sathyanandns/odoo-api-automation',
+    // githubUrl pending user-provided repository link
     highlight: false,
   },
 ];
