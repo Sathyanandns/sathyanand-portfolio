@@ -8,21 +8,21 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Programming Languages',
     icon: 'code',
-    skills: ['Python', 'HTML', 'CSS', 'JavaScript'],
+    skills: ['Python', 'JavaScript', 'HTML', 'CSS'],
   },
   {
-    title: 'Machine Learning',
+    title: 'Machine Learning & Data',
     icon: 'brain',
     skills: [
       'Supervised Classification',
-      'Data Preprocessing',
-      'Feature Engineering',
-      'Basic NLP',
       'Scikit-learn',
       'XGBoost',
       'Random Forest',
       'SVM',
-      'Decision Trees',
+      'Pandas',
+      'NumPy',
+      'Feature Engineering',
+      'Basic NLP',
     ],
   },
   {
@@ -32,34 +32,44 @@ export const skillCategories: SkillCategory[] = [
       'AWS EC2',
       'AWS S3',
       'AWS IAM',
+      'AWS SageMaker',
       'Static Website Hosting',
-      'Basic AWS SageMaker',
-      'Cloud-based Deployment',
+      'Cloud Deployment',
       'Cloud Data Pipelines',
     ],
   },
   {
-    title: 'Data & Automation',
+    title: 'Backend & Integration',
     icon: 'database',
     skills: [
-      'Pandas',
-      'NumPy',
-      'Data Cleaning',
-      'Data Validation',
-      'Data Processing',
-      'ETL',
-      'Automation',
+      'Flask',
+      'REST APIs',
+      'JSON-RPC / XML-RPC',
+      'PostgreSQL',
+      'Odoo ERP',
     ],
   },
   {
-    title: 'Development Tools',
+    title: 'AI & Frontend Tools',
     icon: 'wrench',
-    skills: ['Git', 'GitHub', 'Visual Studio Code', 'Flask', 'REST APIs'],
+    skills: [
+      'Ollama (Local LLMs)',
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Git & GitHub',
+      'VS Code',
+      'Excel',
+    ],
   },
   {
     title: 'OS & Networking',
     icon: 'terminal',
-    skills: ['Linux', 'Ubuntu', 'CentOS', 'TCP/IP', 'DNS Fundamentals'],
+    skills: [
+      'Linux (Ubuntu/CentOS)',
+      'TCP/IP Fundamentals',
+      'DNS Fundamentals',
+    ],
   },
 ];
 
@@ -90,6 +100,29 @@ export const languages: Language[] = [
   { name: 'Tamil', level: 'Native' },
   { name: 'English', level: 'Professional' },
   { name: 'Telugu', level: 'Conversational' },
+];
+
+export interface Experience {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  type: string;
+  bullets: string[];
+}
+
+export const experienceData: Experience[] = [
+  {
+    role: 'Project Associate Intern',
+    company: 'Goat Robotics Pvt. Ltd.',
+    location: 'Coimbatore',
+    period: '14 July 2026 – 31 October 2026',
+    type: '3-Month Internship',
+    bullets: [
+      'Successfully completed a 3-month internship program and contributed to assigned tasks with dedication and sincerity.',
+      'Demonstrated initiative, professionalism, and a positive attitude throughout the internship.',
+    ],
+  },
 ];
 
 export interface Education {

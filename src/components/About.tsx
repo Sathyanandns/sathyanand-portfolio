@@ -4,7 +4,7 @@ import { siteConfig, assetUrl } from '../data/site';
 
 const infoCards = [
   { label: 'Focus', value: 'Machine Learning & Cloud Computing' },
-  { label: 'Primary Language', value: 'Python' },
+  { label: 'Experience', value: 'Goat Robotics (Project Associate Intern)' },
   { label: 'Cloud Architecture', value: 'AWS (EC2, S3, IAM)' },
   { label: 'Location', value: siteConfig.location },
 ];
@@ -71,9 +71,9 @@ export default function About() {
             <h3>Building at the Intersection of Data &amp; Infrastructure</h3>
 
             <p>
-              I recently completed my MCA with a strong focus on <strong>Machine Learning</strong> and{' '}
-              <strong>AWS Cloud Computing</strong>, and I genuinely enjoy working at the intersection of
-              data and cloud infrastructure.
+              I completed my MCA with a strong focus on <strong>Machine Learning</strong> and{' '}
+              <strong>AWS Cloud Computing</strong>, along with a completed 3-month internship as a{' '}
+              <strong>Project Associate Intern at Goat Robotics Pvt. Ltd.</strong>, Coimbatore.
             </p>
 
             <p>

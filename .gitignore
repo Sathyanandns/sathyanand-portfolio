@@ -1,4 +1,6 @@
-# Logs
+# Local QA Artifacts
+qa-report.json
+qa-screenshots/
 logs
 *.log
 npm-debug.log*

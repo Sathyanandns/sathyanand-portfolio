@@ -50,20 +50,30 @@ export default function Resume() {
           style={{ transitionDelay: '200ms' }}
         >
           <div className="resume-highlight-card">
-            <h3>Education</h3>
+            <h3>Experience</h3>
             <ul>
-              <li>MCA — KGISL Institute of Information Management (2023–2025)</li>
-              <li>B.Sc Computer Science — KG Arts and Science College (2020–2023)</li>
+              <li><strong>Project Associate Intern</strong></li>
+              <li>Goat Robotics Pvt. Ltd., Coimbatore</li>
+              <li>14 July 2026 – 31 October 2026 (3 months)</li>
+              <li>Robotics &amp; engineering tasks</li>
             </ul>
           </div>
 
           <div className="resume-highlight-card">
-            <h3>Core Skills</h3>
+            <h3>Education</h3>
             <ul>
-              <li>Python &amp; Machine Learning (Scikit-Learn, XGBoost)</li>
-              <li>AWS Cloud Computing (EC2, S3, IAM, SageMaker)</li>
-              <li>Data Processing &amp; ETL Pipelines (Pandas, NumPy)</li>
-              <li>Backend &amp; API Development (Flask, REST APIs)</li>
+              <li><strong>MCA</strong> — KGISL Institute of Information Management (2023–2025)</li>
+              <li><strong>B.Sc Computer Science</strong> — KG Arts and Science College (2020–2023)</li>
+            </ul>
+          </div>
+
+          <div className="resume-highlight-card">
+            <h3>Technical Skills</h3>
+            <ul>
+              <li>Python, JavaScript, ML (Scikit-Learn, XGBoost, SVM)</li>
+              <li>AWS Cloud (EC2, S3, IAM, SageMaker, Static Hosting)</li>
+              <li>Flask, REST APIs, JSON-RPC, PostgreSQL, Odoo ERP</li>
+              <li>Ollama (Local LLMs), React, Vite, Linux, Git</li>
             </ul>
           </div>
 
@@ -72,8 +82,8 @@ export default function Resume() {
             <ul>
               <li>Phishing Detection ML System (99.57% test accuracy)</li>
               <li>ML Model Cloud Deployment on AWS EC2 &amp; S3</li>
-              <li>Automated Cloud Data Processing Pipeline (85% time reduction)</li>
-              <li>Project Monitor &amp; EVM Milestone Dashboard</li>
+              <li>Odoo Local LLM Assistant (Ollama, 100% private)</li>
+              <li>Automated Cloud Data Processing Pipeline (85% gain)</li>
             </ul>
           </div>
         </div>

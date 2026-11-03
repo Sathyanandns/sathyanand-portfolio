@@ -329,4 +329,68 @@ export const projects: Project[] = [
     // githubUrl pending user-provided repository link
     highlight: false,
   },
+  {
+    id: 'iam-access-control',
+    title: 'IAM-Based Access Control & Cloud Security',
+    shortTitle: 'IAM Security',
+    category: 'AWS',
+    description:
+      'Configured IAM users, groups, roles, and least-privilege policies for AWS EC2 and S3 with zero hardcoded credentials.',
+    longDescription:
+      'Implemented enterprise security best practices across AWS infrastructure. Configured least-privilege IAM policies, dedicated EC2 instance roles, restrictive S3 bucket access policies, and permission boundaries.',
+    problem:
+      'Over-permissive cloud permissions and hardcoded API keys create severe cybersecurity risks and compliance vulnerabilities.',
+    solution:
+      'Structured fine-grained IAM roles, assigned temporary credential policies via IAM instance profiles, and locked down S3 bucket access to authorized resources.',
+    result:
+      'Achieved zero hardcoded access keys and strict compliance with AWS least-privilege security standards across compute and storage resources.',
+    technologies: [
+      'AWS IAM', 'AWS EC2', 'AWS S3', 'Cloud Security', 'JSON Policies', 'Least Privilege',
+    ],
+    features: [
+      'Least-privilege role-based access control (RBAC)',
+      'EC2 IAM instance profiles without stored keys',
+      'Scoped S3 bucket resource policies & CORS',
+      'Defensive permission boundaries & credential rotation',
+    ],
+    metric: {
+      label: 'Hardcoded Keys',
+      value: '0 Keys',
+      note: 'Zero exposed access keys; 100% IAM role-based authentication',
+    },
+    // githubUrl pending user-provided repository link
+    highlight: false,
+  },
+  {
+    id: 'nlp-text-classification',
+    title: 'NLP Text Classification Pipeline',
+    shortTitle: 'NLP Classifier',
+    category: 'ML',
+    description:
+      'Built an end-to-end text classification pipeline using tokenization, stop-word filtering, TF-IDF vectorization, and supervised model training.',
+    longDescription:
+      'Engineered a comprehensive NLP text classification pipeline. Preprocessed raw textual data through tokenization, regex-based cleaning, and stop-word removal, followed by TF-IDF n-gram feature extraction and multi-model classification evaluated on precision, recall, and F1-score benchmarks.',
+    problem:
+      'Unstructured text data contains high noise and sparse dimensionality, requiring systematic preprocessing and vectorization before machine learning models can accurately classify intent or topic.',
+    solution:
+      'Constructed a robust text processing workflow combining custom preprocessing, TF-IDF representation, and tuned classification algorithms with stratified evaluation.',
+    result:
+      'Delivered a high-precision text classification pipeline with fast sub-millisecond per-document inference and balanced F1 evaluation.',
+    technologies: [
+      'Python', 'NLP', 'Scikit-learn', 'TF-IDF', 'Pandas', 'Text Mining',
+    ],
+    features: [
+      'Text tokenization, cleaning & lemmatization',
+      'Custom stop-word removal & n-gram extraction',
+      'TF-IDF sparse feature matrix transformation',
+      'Comprehensive Precision, Recall, and F1-score validation',
+    ],
+    metric: {
+      label: 'Evaluation',
+      value: 'F1 Balanced',
+      note: 'Tuned for high precision and recall on unseen text evaluation sets',
+    },
+    // githubUrl pending user-provided repository link
+    highlight: false,
+  },
 ];
