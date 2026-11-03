@@ -78,14 +78,19 @@ export default function Hero() {
         </div>
 
         {/* Image */}
-        <div
-          className="hero-image-wrapper hero-fade-in"
-          style={{ animationDelay: '150ms' }}
-        >
+        <div className="hero-image-wrapper hero-fade-in">
           <div className="hero-image-container">
             <div className="hero-image-glow" />
             <picture>
-              <source srcSet={assetUrl('images/sathyanand-hero.webp')} type="image/webp" />
+              <source
+                media="(max-width: 768px)"
+                srcSet={assetUrl('images/sathyanand-hero-mobile.webp')}
+                type="image/webp"
+              />
+              <source
+                srcSet={assetUrl('images/sathyanand-hero.webp')}
+                type="image/webp"
+              />
               <img
                 className="hero-image"
                 src={assetUrl('images/sathyanand-hero.jpg')}
