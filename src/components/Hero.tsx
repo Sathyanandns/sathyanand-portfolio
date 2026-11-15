@@ -32,7 +32,10 @@ export default function Hero() {
 
           <div className="hero-status">
             <span className="status-dot" />
-            Python &bull; Machine Learning &bull; AWS &bull; Cloud Computing
+            <span className="status-item">Python •</span>{' '}
+            <span className="status-item">Machine Learning •</span>{' '}
+            <span className="status-item">AWS •</span>{' '}
+            <span className="status-item">Cloud Computing</span>
           </div>
 
           <h1 className="hero-name">

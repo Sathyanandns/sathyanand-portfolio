@@ -40,6 +40,8 @@
   --section-padding: var(--space-20) 0;
   --container-max: 1200px;
   --container-padding: 0 var(--space-6);
+  --nav-h: 64px;
+  --badge-surface: rgba(255, 255, 255, 0.94);
 
   /* --- Radius Scale (Base: 8px) --- */
   --radius-base: 8px;
@@ -139,6 +141,7 @@
   --surface-hover: #27272a;
   --surface-active: #323238;
   --bg-glass: rgba(9, 9, 11, 0.88);
+  --badge-surface: rgba(24, 24, 27, 0.92);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
@@ -884,7 +887,7 @@ button {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 64px;
+  padding-top: var(--nav-h);
 }
 
 .hero-bg {
@@ -981,26 +984,33 @@ button {
 }
 
 .hero-status {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
   color: var(--text-secondary);
   margin-bottom: var(--space-5);
-  padding: 4px 12px;
+  padding: 4px 14px;
   background: var(--surface-raised);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
   letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .hero-status .status-dot {
+  display: inline-block;
   width: 6px;
   height: 6px;
   background: var(--color-success);
   border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 6px;
+  margin-bottom: 2px;
+}
+
+.hero-status .status-item {
+  white-space: nowrap;
+  display: inline;
 }
 
 .hero-name {
@@ -1178,7 +1188,7 @@ button {
 @media (max-width: 768px) {
   .hero {
     overflow: hidden;
-    padding-top: calc(var(--navbar-height) + var(--space-6));
+    padding-top: calc(var(--nav-h) + 24px);
     padding-bottom: var(--space-12);
   }
 
@@ -1227,42 +1237,46 @@ button {
   .hero-floating-card {
     position: absolute;
     z-index: 3;
-    font-size: clamp(0.6875rem, 2.4vw, 0.75rem);
-    padding: clamp(4px, 1.4vw, 6px) clamp(8px, 2.2vw, 10px);
+    font-size: clamp(0.65rem, 2.3vw, 0.72rem);
+    padding: 4px 8px;
     border-radius: var(--radius-sm);
-    box-shadow: var(--elevation-1);
-    background: var(--color-surface-overlay);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: var(--badge-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
     white-space: nowrap;
-    max-width: calc(100% - 20px);
+    max-width: calc(100% - 16px);
+    display: flex;
+    align-items: center;
+    animation: none;
   }
 
   .hero-floating-card .card-icon {
     flex-shrink: 0;
     margin-right: 4px;
+    color: var(--accent-primary);
   }
 
-  /* ML Engineer: top-right, below hairline / shoulder area, strictly inside frame */
+  /* ML Engineer: right edge, strictly lower than chin (below 65% face region) */
   .hero-floating-card.card-1 {
-    top: clamp(48px, 18%, 58px);
-    right: 10px;
+    top: 67%;
+    right: 8px;
     left: auto;
     bottom: auto;
   }
 
-  /* AWS Cloud: bottom-left, strictly inside frame */
+  /* AWS Cloud: bottom-left */
   .hero-floating-card.card-2 {
-    bottom: clamp(42px, 16%, 48px);
-    left: 10px;
+    bottom: 38px;
+    left: 8px;
     right: auto;
     top: auto;
   }
 
-  /* Python & Data: bottom-right, strictly inside frame with no overlap with AWS Cloud */
+  /* Python & Data: bottom-right */
   .hero-floating-card.card-3 {
-    bottom: 10px;
-    right: 10px;
+    bottom: 8px;
+    right: 8px;
     left: auto;
     top: auto;
   }
@@ -1307,28 +1321,31 @@ button {
 
   /* 2. Skills strip */
   .hero-status {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: 6px 12px;
+    display: inline-block;
+    padding: 6px 14px;
     border-radius: var(--radius-md);
     max-width: min(100%, 360px);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--space-5);
     text-align: center;
-    text-wrap: balance;
-    font-size: clamp(0.65rem, 2.3vw, 0.75rem);
+    font-size: clamp(0.65rem, 2.3vw, 0.72rem);
     letter-spacing: 0.02em;
-    line-height: 1.4;
+    line-height: 1.5;
     box-sizing: border-box;
   }
 
   .hero-status .status-dot {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    margin-bottom: 2px;
     flex-shrink: 0;
-    align-self: center;
-    margin-right: 2px;
+  }
+
+  .hero-status .status-item {
+    white-space: nowrap;
+    display: inline;
   }
 
   /* Name */
