@@ -96,7 +96,7 @@ export default function Hero() {
               />
               <img
                 className="hero-image"
-                src={assetUrl('images/sathyanand-hero.jpg')}
+                src={assetUrl('images/sathyanand-hero-mobile.webp')}
                 alt={`${siteConfig.name} - ${siteConfig.title}`}
                 loading="eager"
                 width={380}
