@@ -26,6 +26,24 @@ async function convertJpgsToWebp() {
   }
 }
 
+async function generateMobileHeroImages() {
+  const src = path.join(imagesDir, 'sathyanand-hero.jpg');
+  const targets = [
+    { name: 'sathyanand-hero-mobile-480w.webp', width: 480, height: Math.round(480 * 355 / 320), quality: 82 },
+    { name: 'sathyanand-hero-mobile-720w.webp', width: 720, height: Math.round(720 * 355 / 320), quality: 82 },
+    { name: 'sathyanand-hero-mobile-960w.webp', width: 960, height: Math.round(960 * 355 / 320), quality: 82 },
+  ];
+  for (const t of targets) {
+    const dest = path.join(imagesDir, t.name);
+    await sharp(src)
+      .resize(t.width, t.height, { fit: 'cover', position: 'center' })
+      .webp({ quality: t.quality })
+      .toFile(dest);
+    const size = fs.statSync(dest).size;
+    console.log(`Generated ${t.name} (${t.width}x${t.height}, ${(size/1024).toFixed(1)} KB)`);
+  }
+}
+
 async function generateArchitectureImages() {
   // 1. Phishing Detection Architecture
   const phishingSvg = `
@@ -352,6 +370,7 @@ async function generateFavicons() {
 
 async function run() {
   await convertJpgsToWebp();
+  await generateMobileHeroImages();
   await generateArchitectureImages();
   await generateOgImage();
   await generateFavicons();

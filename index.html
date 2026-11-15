@@ -27,7 +27,16 @@
     <meta name="author" content="Sathyanand N S" />
 
     <!-- Preload LCP Hero Image for 95+ Lighthouse Performance -->
-    <link rel="preload" as="image" href="/sathyanand-portfolio/images/sathyanand-hero-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/sathyanand-portfolio/images/sathyanand-hero-mobile-720w.webp"
+      imagesrcset="/sathyanand-portfolio/images/sathyanand-hero-mobile-480w.webp 480w, /sathyanand-portfolio/images/sathyanand-hero-mobile-720w.webp 720w, /sathyanand-portfolio/images/sathyanand-hero-mobile-960w.webp 960w"
+      imagesizes="(max-width: 768px) min(92vw, 380px), 380px"
+      type="image/webp"
+      media="(max-width: 768px)"
+      fetchpriority="high"
+    />
     <link rel="preload" as="image" href="/sathyanand-portfolio/images/sathyanand-hero.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
 
     <!-- Canonical URL -->

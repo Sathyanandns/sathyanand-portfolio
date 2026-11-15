@@ -87,7 +87,8 @@ export default function Hero() {
             <picture>
               <source
                 media="(max-width: 768px)"
-                srcSet={assetUrl('images/sathyanand-hero-mobile.webp')}
+                srcSet={`${assetUrl('images/sathyanand-hero-mobile-480w.webp')} 480w, ${assetUrl('images/sathyanand-hero-mobile-720w.webp')} 720w, ${assetUrl('images/sathyanand-hero-mobile-960w.webp')} 960w`}
+                sizes="(max-width: 768px) min(92vw, 380px), 380px"
                 type="image/webp"
               />
               <source
@@ -96,7 +97,7 @@ export default function Hero() {
               />
               <img
                 className="hero-image"
-                src={assetUrl('images/sathyanand-hero-mobile.webp')}
+                src={assetUrl('images/sathyanand-hero-mobile-720w.webp')}
                 alt={`${siteConfig.name} - ${siteConfig.title}`}
                 loading="eager"
                 width={380}
