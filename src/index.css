@@ -1177,9 +1177,13 @@ button {
 /* ===== MOBILE HERO SCOPED FIXES (<=768px) ===== */
 @media (max-width: 768px) {
   .hero {
-    overflow-x: hidden;
+    overflow: hidden;
     padding-top: calc(var(--navbar-height) + var(--space-6));
     padding-bottom: var(--space-12);
+  }
+
+  .hero-gradient-orb {
+    display: none;
   }
 
   .hero-content {
