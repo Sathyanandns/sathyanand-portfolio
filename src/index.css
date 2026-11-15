@@ -488,6 +488,14 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Scroll-in Animations */
 .animate-in {
   opacity: 0;
